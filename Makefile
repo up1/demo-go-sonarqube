@@ -9,14 +9,14 @@ build:
 	mkdir -p bin
 	go build -o bin/demo cmd/main.go
 
-test: build
-	go test -short -coverprofile=bin/cov.out ./..
+test:
+	go test -short -coverprofile=bin/cov.out ./...
 	go tool cover -func=bin/cov.out
 
 clean:
 	rm -rf ./bin
 
-sonar: test
+sonar:
 	sonar-scanner -Dsonar.projectVersion="$(version)"
 
 start-sonar-scanner:
