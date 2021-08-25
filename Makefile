@@ -20,9 +20,9 @@ sonar:
 	sonar-scanner -Dsonar.projectVersion="$(version)"
 
 start-sonar-scanner:
-	docker run \
+	docker container run \
 		--rm \
 		-e SONAR_HOST_URL="${SONAR_URL}" \
 		-e SONAR_LOGIN="${SONAR_SECRET}" \
-		-v ${SOURCE_PATH}:/usr/src \
+		-v $(pwd):/usr/src \
 		sonarsource/sonar-scanner-cli
