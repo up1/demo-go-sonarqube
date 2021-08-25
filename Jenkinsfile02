@@ -22,9 +22,17 @@ pipeline {
                 sh 'make test'
             }
         }
-		stage('SonarQube analysis') {
+        stage('Sonarqube') {
+            environment {
+                scannerHome = tool 'scanner'
+            }
             steps {
-                sh 'make start-sonar-scanner'
+                withSonarQubeEnv('sonarqube') {
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
+                timeout(time: 10, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
             }
         }
     }
