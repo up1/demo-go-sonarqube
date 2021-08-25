@@ -1,9 +1,9 @@
 pipeline {
     agent any
 	environment {
-		SOURCE_PATH=/var/jenkins_home/workspace/demo-go
-		SONAR_URL=http://134.209.106.104:9000
-		SONAR_SECRET=4f2dcaf29fb346a115bf22586b31b67615e0f080
+		SOURCE_PATH='/var/jenkins_home/workspace/demo-go'
+		SONAR_URL='http://134.209.106.104:9000'
+		SONAR_SECRET='4f2dcaf29fb346a115bf22586b31b67615e0f080'
 	}
     stages {
 		stage('Pull code') {

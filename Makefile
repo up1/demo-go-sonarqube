@@ -22,7 +22,7 @@ sonar:
 start-sonar-scanner:
 	docker run \
 		--rm \
-		-e SONAR_HOST_URL="http://${SONAR_URL}" \
+		-e SONAR_HOST_URL="${SONAR_URL}" \
 		-e SONAR_LOGIN="${SONAR_SECRET}" \
 		-v "${SOURCE_PATH}:/usr/src" \
 		sonarsource/sonar-scanner-cli
