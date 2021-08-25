@@ -24,5 +24,5 @@ start-sonar-scanner:
 		--rm \
 		-e SONAR_HOST_URL="${SONAR_URL}" \
 		-e SONAR_LOGIN="${SONAR_SECRET}" \
-		-v $(pwd):/usr/src \
+		-v $(notdir $(shell pwd)):/usr/src \
 		sonarsource/sonar-scanner-cli

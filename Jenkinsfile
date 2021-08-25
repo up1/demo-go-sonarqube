@@ -24,7 +24,7 @@ pipeline {
         }
 		stage('SonarQube analysis') {
             steps {
-                sh 'make start-sonar-scanner'
+                sh 'pwd && make start-sonar-scanner'
             }
         }
         stage("Quality Gate") {
