@@ -16,13 +16,10 @@ test:
 clean:
 	rm -rf ./bin
 
-sonar:
-	sonar-scanner -Dsonar.projectVersion="$(version)"
-
 start-sonar-scanner:
 	docker container run \
 		--rm \
 		-e SONAR_HOST_URL="${SONAR_URL}" \
 		-e SONAR_LOGIN="${SONAR_SECRET}" \
-		-v $(notdir $(shell pwd)):/usr/src \
+		-v ${SOURCE_PATH}:/usr/src \
 		sonarsource/sonar-scanner-cli
